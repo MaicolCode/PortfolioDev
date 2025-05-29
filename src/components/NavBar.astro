@@ -1,0 +1,72 @@
+---
+---
+
+<nav class="nav-container">
+    <div class="nav-content">
+        <div class="logo">
+            <a href="/">Portfolio</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<style>
+    .nav-container {
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .nav-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo a {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #666;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: #000;
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            gap: 1rem;
+        }
+
+        .nav-content {
+            padding: 1rem;
+        }
+    }
+</style></ul>
