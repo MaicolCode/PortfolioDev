@@ -1,75 +1,30 @@
 ---
-
+const navItems = [
+  { title: 'Experiencia', href: '#experiencia', label: 'experiencia' },
+  { title: 'Herramientas', href: '#herramientas', label: 'herramientas' },
+  { title: 'Proyectos', href: '#proyetos', label: 'proyetos' },
+  { title: 'Sobre Mi', href: '#sobre-Mi', label: 'sobre-mi' },
+  { title: 'Contacto', href: '#contacto', label: 'contacto' }
+]
 ---
 
-<header>
-  <nav class='nav-container'>
-    <div class='nav-content'>
-      <div class='logo'>
-        <a href='/'>Portfolio</a>
-      </div>
-      <ul class='nav-links'>
-        <li><a href='#home'>Home</a></li>
-        <li><a href='#about'>About</a></li>
-        <li><a href='#projects'>Projects</a></li>
-        <li><a href='#contact'>Contact</a></li>
-      </ul>
-    </div>
+<header
+  class='fixed top-0 z-10 flex justify-center items-center w-full mx-auto mt-2'
+>
+  <nav
+    class='flex justify-center items-center rounded-lg px-3 py-1 text-sm font-medium bg-zinc-50 shadow-lg'
+  >
+    {
+      navItems.map((item) => (
+        <a
+          href={item.href}
+          aria-label={item.label}
+          class='relative block py-2 px-2 transition-colors duration-300 hover:bg-zinc-100 rounded-lg'
+        >
+          {' '}
+          {item.title}
+        </a>
+      ))
+    }
   </nav>
 </header>
-
-<style>
-  .nav-container {
-    width: 100%;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-  }
-
-  .nav-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .logo a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: #333;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-links a {
-    text-decoration: none;
-    color: #666;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-
-  .nav-links a:hover {
-    color: #000;
-  }
-
-  @media (max-width: 768px) {
-    .nav-links {
-      gap: 1rem;
-    }
-
-    .nav-content {
-      padding: 1rem;
-    }
-  }
-</style>
