@@ -1,3 +1,8 @@
+---
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+---
+
 <!doctype html>
 <html lang='en'>
   <head>
@@ -14,31 +19,33 @@
     <title>My Portfolio Dev</title>
   </head>
   <body>
+    <Header />
     <slot />
+    <Footer />
+
+    <style>
+      * {
+        font-family:
+          'Montserrat',
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          'Open Sans',
+          'Helvetica Neue',
+          sans-serif;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
   </body>
 </html>
-
-<style>
-  * {
-    font-family:
-      'Montserrat',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Segoe UI',
-      Roboto,
-      Oxygen,
-      Ubuntu,
-      Cantarell,
-      'Open Sans',
-      'Helvetica Neue',
-      sans-serif;
-  }
-
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>
