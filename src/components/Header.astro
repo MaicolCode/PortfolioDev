@@ -2,24 +2,24 @@
 const navItems = [
   { title: 'Experiencia', href: '#experiencia', label: 'experiencia' },
   { title: 'Herramientas', href: '#herramientas', label: 'herramientas' },
-  { title: 'Proyectos', href: '#proyetos', label: 'proyetos' },
-  { title: 'Sobre Mi', href: '#sobre-Mi', label: 'sobre-mi' },
+  { title: 'Proyectos', href: '#proyectos', label: 'proyectos' },
+  { title: 'Sobre Mi', href: '#sobre-mi', label: 'sobre-mi' },
   { title: 'Contacto', href: '#contacto', label: 'contacto' }
 ]
 ---
 
 <header
-  class='fixed top-0 z-10 flex justify-center items-center w-full mx-auto mt-2'
+  class='fixed top-0 z-10 font-normal flex justify-center items-center w-full mx-auto mt-2'
 >
   <nav
-    class='flex justify-center items-center rounded-lg px-3 py-1 text-sm font-regular bg-zinc-50 shadow-lg'
+    class='flex justify-center items-center rounded-lg px-3 py-1 text-sm font-regular shadow-lg'
   >
     {
       navItems.map((item) => (
         <a
           href={item.href}
           aria-label={item.label}
-          class='relative block py-1 px-2 hover:text-[#12eb48] transition rounded-lg'
+          class='relative block py-1 px-2 hover:text-blue-500 transition rounded-lg'
         >
           {' '}
           {item.title}
@@ -31,7 +31,12 @@ const navItems = [
 
 <style>
   nav {
-    backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    nav {
+      background-color: rgba(63, 63, 63, 0.5);
+    }
   }
 </style>
