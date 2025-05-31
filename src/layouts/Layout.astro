@@ -1,6 +1,7 @@
 ---
 import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
+import '@fontsource-variable/fredoka'
 import '../styles/global.css'
 ---
 
@@ -9,19 +10,13 @@ import '../styles/global.css'
   <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <link rel='preconnect' href='https://fonts.googleapis.com' />
-    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-    <link
-      href='https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap'
-      rel='stylesheet'
-    />
     <meta name='generator' content={Astro.generator} />
+    <link rel='shortcut icon' href='favicon.svg' type='image/x-icon' />
     <title>My Portfolio Dev</title>
   </head>
-  <body>
+  <body class='font-light text-lg'>
     <div
-      class='absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)]'
+      class='fixed top-0 z-[-2] min-h-screen w-full bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)] dark:bg-zinc-950 dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]'
     >
     </div>
   </body>
@@ -30,9 +25,13 @@ import '../styles/global.css'
   <Footer />
 
   <style is:global>
+    :root {
+      color-scheme: dark light;
+    }
+
     * {
       font-family:
-        'Red Hat Display',
+        'Fredoka Variable',
         system-ui,
         -apple-system,
         BlinkMacSystemFont,
@@ -51,9 +50,18 @@ import '../styles/global.css'
     }
 
     body {
-      margin: 0;
-      width: 100%;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      scroll-behavior: none;
+      overflow-x: hidden;
+      color: var(--color-zinc-800);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        color: var(--color-zinc-100);
+      }
     }
   </style>
 </html>
