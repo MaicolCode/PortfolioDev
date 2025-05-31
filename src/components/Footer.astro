@@ -2,12 +2,16 @@
 const currentYear = new Date().getFullYear()
 ---
 
-<footer>
-  <div>
+<footer
+  class='opacity-80 m-4 min-[375px]:pl-4 md:pl-0 mx-auto container lg:max-w-4xl md: max-w-2xl flex justify-center'
+>
+  <div
+    class='w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4'
+  >
     <article class='flex flex-col justify-center gap-2 text-sm'>
       <span>
         @{currentYear}
-        <a href='https://github.com/MaicolCode' class='hover:underline'>
+        <a href='https://github.com/MaicolCode' class='font-medium'>
           MaicolCode
         </a>
         | Todos los derechos reservados
@@ -15,18 +19,24 @@ const currentYear = new Date().getFullYear()
       <span>
         Basada del diseño de <a
           href='https://porfolio.dev/'
-          class='hover:underline'
+          class='font-medium'
         >
           midudev
         </a>
       </span>
     </article>
-    <ul></ul>
+    <ul class='font-medium text-sm flex gap-5'>
+      <li><a href='#sobre-mi'>Sobre mí</a></li>
+      <li><a href='#contacto'>Contacto</a></li>
+    </ul>
   </div>
 </footer>
 
 <style>
   a {
-    color: #00ff6a;
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: #12eb48;
   }
 </style>
