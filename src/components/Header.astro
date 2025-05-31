@@ -12,14 +12,14 @@ const navItems = [
   class='fixed top-0 z-10 flex justify-center items-center w-full mx-auto mt-2'
 >
   <nav
-    class='flex justify-center items-center rounded-lg px-3 py-1 text-sm font-medium bg-zinc-50 shadow-lg'
+    class='flex justify-center items-center rounded-lg px-3 py-1 text-sm font-regular bg-zinc-50 shadow-lg'
   >
     {
       navItems.map((item) => (
         <a
           href={item.href}
           aria-label={item.label}
-          class='relative block py-2 px-2 transition-colors duration-300 hover:bg-zinc-100 rounded-lg'
+          class='relative block py-1 px-2 hover:text-[#12eb48] transition rounded-lg'
         >
           {' '}
           {item.title}
@@ -28,3 +28,10 @@ const navItems = [
     }
   </nav>
 </header>
+
+<style>
+  nav {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+</style>
