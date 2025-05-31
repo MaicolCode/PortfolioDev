@@ -36,7 +36,14 @@ const currentYear = new Date().getFullYear()
   a {
     transition: color 0.3s ease;
   }
+
   a:hover {
-    color: #12eb48;
+    color: var(--color-blue-500);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    a {
+      color: var(--color-white);
+    }
   }
 </style>
