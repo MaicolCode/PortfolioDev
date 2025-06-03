@@ -1,18 +1,21 @@
 ---
+import ToogleTheme from '@/components/ToggleTheme.astro'
+import MenuIcon from '@/components/icons/MenuIcon.astro'
+import CloseIcon from '@/components/icons/CloseIcon.astro'
+
 const navItems = [
   { title: 'Experiencia', href: '#experiencia', label: 'experiencia' },
-  { title: 'Herramientas', href: '#herramientas', label: 'herramientas' },
+  { title: 'Tecnologías', href: '#tecnologias', label: 'tecnologias' },
   { title: 'Proyectos', href: '#proyectos', label: 'proyectos' },
-  { title: 'Sobre Mi', href: '#sobre-mi', label: 'sobre-mi' },
-  { title: 'Contacto', href: '#contacto', label: 'contacto' }
+  { title: 'Sobre Mi', href: '#sobre-mi', label: 'sobre-mi' }
 ]
 ---
 
 <header
-  class='fixed top-0 z-10 font-normal flex justify-center items-center w-full mx-auto mt-2'
+  class='fixed top-0 z-10 font-normal flex flex-col md:flex-row md:justify-center md:items-center w-full mx-auto mt-2'
 >
   <nav
-    class='flex justify-center items-center rounded-lg px-3 py-1 text-sm font-regular shadow-lg'
+    class='hidden md:flex flex-col items-start md:flex-row md:justify-center md:items-center bg-[#ffffff80] dark:bg-[#3f3f3f80] rounded-lg px-3 py-1 text-sm font-regular shadow-lg'
   >
     {
       navItems.map((item) => (
@@ -26,17 +29,57 @@ const navItems = [
         </a>
       ))
     }
+    <ToogleTheme />
   </nav>
+  <button
+    id='menu-toggle'
+    class='lg:hidden fixed right-4 top-4 z-50 p-2 rounded-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm'
+    aria-label='Toggle menu'
+  >
+    <MenuIcon class='absolute menu-actions size-6 transition-all' />
+
+    <CloseIcon class='menu-actions close size-6 transition-all' />
+  </button>
 </header>
 
 <style>
+  .close {
+    scale: 0;
+    animation: scale-up-center 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  @keyframe scale-up-center {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
   nav {
     backdrop-filter: blur(20px);
   }
-
-  @media (prefers-color-scheme: dark) {
-    nav {
-      background-color: rgba(63, 63, 63, 0.5);
-    }
-  }
 </style>
+
+<script>
+  const menuActions = document.querySelectorAll('.menu-actions')
+  const menuButton = document.getElementById('menu-toggle')
+  const nav = document.querySelector('nav')
+
+  menuButton?.addEventListener('click', () => {
+    nav?.classList.toggle('flex')
+    nav?.classList.toggle('hidden')
+
+    const isClose = Array.from(menuActions).filter((icon) =>
+      icon.classList.contains('close')
+    )
+    const isOpen = Array.from(menuActions).filter(
+      (icon) => !icon.classList.contains('close')
+    )
+
+    isClose[0].classList.remove('close')
+    isOpen[0].classList.add('close')
+  })
+</script>
