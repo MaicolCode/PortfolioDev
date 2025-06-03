@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets'
+---
+
+<article class='flex space-y-4'>
+  <div class='flex-1 space-y-4'>
+    <p>
+      Me llamo Maicol, tengo 22 años y soy de Quito, Ecuador. Mi pasión por la
+      programación está impulsada por la innovación y el desarrollo de
+      tecnologías del futuro. Recientemente completé mis estudios como
+      Desarrollador de Software, donde aprendí a crear productos desde su
+      documentación hasta su implementación.
+      <span class='text-medium text-blue-500 font-medium'>
+        Lo que más me apasiono de este proceso es codificar y ver cómo las ideas
+        se transforman en productos funcionales.
+      </span>
+    </p>
+    <p>
+      Como desarrollador destaco que me gusta aprender y mejorar mis habilidades
+      mediante el uso de diferentes herramientas de software. Uno de los exitos
+      por el cual me motivo a esto, fue el desarrollo de una aplicación móvil
+      para el control de un dispositivo que automatiza las puertas y el motor de
+      un automóvil. <span class='text-medium text-blue-500 font-medium'>
+        (Construí el dispositivo por mi cuenta, lo que me permitió adquirir
+        conocimientos fundamentales de electrónica)
+      </span>
+    </p>
+    <p>
+      Actualmente me encuentro mejorando mis habilidades como desarrollador web,
+      enfocandome en la creacion de aplicaciones web modernas, uso de
+      herramientas demandadas en el mercado y el uso de buenas practicas de
+      programación.
+    </p>
+  </div>
+  <Image
+    src='/maicolcode.webp'
+    alt='Me'
+    width={240}
+    height={240}
+    class='hidden md:block rounded-full object-cover w-36 h-36 md:w-40 md:h-40 lg:w-60 lg:h-60 mx-auto md:mx-0 md:ml-4 lg:ml-8 shadow-2xl dark:shadow-slate-700'
+  />
+</article>
