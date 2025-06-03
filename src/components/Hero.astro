@@ -1,0 +1,59 @@
+---
+import { Image } from 'astro:assets'
+import BadgeColors from './BadgeColors.astro'
+import GithubIcon from './icons/GithubIcon.astro'
+import LinkedinIcon from './icons/LinkedinIcon.astro'
+import SocialLink from './SocialLink.astro'
+
+const altname = 'MaicolCode'
+---
+
+<section class='max-w-full'>
+  <article class='flex flex-col items-center'>
+    <Image
+      src='/maicolcode.webp'
+      alt={altname}
+      width={200}
+      height={200}
+      loading='eager'
+      class='rounded-full shadow-2xl dark:shadow-slate-700 mb-8'
+    />
+    <a
+      href='https://linkedin.com/in/maicolcodea/'
+      class='hover:-translate-y-0.5 transition duration-300'
+      target='_blank'
+    >
+      <BadgeColors>Disponible para trabajar</BadgeColors>
+    </a>
+  </article>
+  <div class='max-w-2xl mx-auto my-8'>
+    <h1 class='text-4xl font-medium my-4'>
+      Hey! Un placer, te saluda MaicolCode
+    </h1>
+    <p>
+      +1 año de experiencia como trainee y mejorando. <span
+        class='font-medium text-amber-500'
+      >
+        Siguiente Nivel: Junior
+      </span>
+    </p>
+    <p>
+      <span class='font-medium text-blue-500'>
+        Ingeniero de software enfocado y aprendiendo a dominar los conceptos y
+        buenas prácticas de la programación web
+      </span>
+      te saluda desde Quito, Ecuador EC. Inspirado por la tecnología y el desarrollo
+      de soluciones modernas con un toque único.
+    </p>
+    <div class='my-5 flex gap-4'>
+      <SocialLink href='https://www.linkedin.com/in/maicolcodea/'>
+        <LinkedinIcon />
+        Linkedin
+      </SocialLink>
+      <SocialLink href='https://www.github.com/MaicolCode'>
+        <GithubIcon />
+        GitHub
+      </SocialLink>
+    </div>
+  </div>
+</section>
