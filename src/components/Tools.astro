@@ -1,0 +1,186 @@
+---
+import NextJS from './icons/NextJS.astro'
+import JavaScript from './icons/JavaScript.astro'
+import React from './icons/React.astro'
+import NodeJS from './icons/NodeJS.astro'
+import AstroJS from './icons/AstroJS.astro'
+import Tailwind from './icons/Tailwind.astro'
+import Express from './icons/Express.astro'
+import MongoDB from './icons/MongoDB.astro'
+import Java from './icons/Java.astro'
+import MySQL from './icons/MySQL.astro'
+import TypeScript from './icons/TypeScript.astro'
+import Supabase from './icons/Supabase.astro'
+import CSSIcon from './icons/CSSIcon.astro'
+import HTMLIcon from './icons/HTMLIcon.astro'
+import Laravel from './icons/Laravel.astro'
+
+const tools = [
+  {
+    name: 'HTML',
+    icon: HTMLIcon,
+    color: 'text-orange-500'
+  },
+  {
+    name: 'CSS',
+    icon: CSSIcon,
+    color: 'text-blue-500'
+  },
+  {
+    name: 'JavaScript',
+    icon: JavaScript,
+    color: 'text-amber-500'
+  },
+  {
+    name: 'TypeScript',
+    icon: TypeScript,
+    color: 'text-blue-600'
+  },
+  {
+    name: 'React',
+    icon: React,
+    color: 'text-cyan-400'
+  },
+  {
+    name: 'Next JS',
+    icon: NextJS,
+    color: 'text-shadow-lg/30'
+  },
+  {
+    name: 'Astro',
+    icon: AstroJS,
+    color: 'text-orange-600'
+  },
+  {
+    name: 'TailwindCSS',
+    icon: Tailwind,
+    color: 'text-cyan-500'
+  },
+  {
+    name: 'Node JS',
+    icon: NodeJS,
+    color: 'text-lime-500'
+  },
+  {
+    name: 'Express JS',
+    icon: Express,
+    color: 'text-shadow-lg/30'
+  },
+  {
+    name: 'MongoDB',
+    icon: MongoDB,
+    color: 'text-emerald-600'
+  },
+  {
+    name: 'MySQL',
+    icon: MySQL,
+    color: 'text-blue-600'
+  },
+  {
+    name: 'SupaBase',
+    icon: Supabase,
+    color: 'text-emerald-400'
+  },
+  {
+    name: 'Java',
+    icon: Java,
+    color: 'text-blue-700'
+  },
+  {
+    name: 'Laravel',
+    icon: Laravel,
+    color: 'text-red-600'
+  }
+]
+---
+
+<div class='flex flex-col justify-center items-center my-20'>
+  <div class='flex flex-col text-4xl'>
+    <h1 class='font-normal dark:text-zinc-300'>
+      En mi transcurso como desarrollador web eh usado
+    </h1>
+    <span
+      id='tool'
+      class='font-medium transition-all duration-300 transform animate'
+    >
+      estas herramientas.
+    </span>
+  </div>
+  <div
+    class='flex flex-wrap justify-center items-center p-8 md:p-16 my-5 rounded-md md:bg-gradient-to-tl bg-gradient-to-tr from-zinc-950 from-40% to-[rgba(120,119,198,0.3)] dark:bg-none to-100%'
+  >
+    {
+      tools.map((tool) => (
+        <tool.icon
+          id='icon-tool'
+          class='size-24 p-4 aspect-square object-contain transition-all duration-300 grayscale hover:grayscale-0 hover:scale-110'
+          title={tool.name}
+          coloricon={tool.color}
+        />
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  @keyframes popIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-1);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(1);
+    }
+  }
+
+  #tool {
+    display: inline-block;
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  #tool.animate {
+    animation: popIn 0.6s ease-out forwards;
+  }
+</style>
+
+<script>
+  const $ = (et: string) => document.querySelector(et)
+  const $$ = (et: string) => document.querySelectorAll(et)
+  const matchMedia = window.matchMedia('(prefers-color-scheme:dark)')
+
+  console.log(matchMedia)
+
+  Array.from($$('#icon-tool')).forEach((icon) => {
+    let color: string = ''
+
+    icon?.addEventListener('mouseenter', (e) => {
+      const target = e.target as HTMLElement
+      const toolName = target.getAttribute('title')
+      const toolColor = target.getAttribute('coloricon')
+      const toolSpan = $('#tool')! as HTMLElement
+      const darkColor = 'dark:' + toolColor
+
+      console.log(darkColor)
+
+      const colorIconScheme = matchMedia ? darkColor : toolColor
+
+      toolSpan.textContent = toolName || 'esta tecnología'
+      // Reiniciar animación
+      toolSpan.classList.remove('animate', 'dark:text-white')
+      void toolSpan.offsetWidth // Forzar reflow
+      toolSpan.classList.add('animate', toolColor || '#FFFF')
+      color = toolColor || ''
+    })
+
+    icon?.addEventListener('mouseleave', () => {
+      const toolSpan = $('#tool')! as HTMLElement
+
+      toolSpan.textContent = 'estas tecnologías'
+      // Reiniciar animación
+      toolSpan.classList.remove('animate', color)
+      void toolSpan.offsetWidth // Forzar reflow
+      toolSpan.classList.add('animate', 'dark:text-white')
+    })
+  })
+</script>
