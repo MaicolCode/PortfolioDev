@@ -1,0 +1,119 @@
+---
+import GithubIcon from './icons/GithubIcon.astro'
+import ButtonLink from './ButtonLink.astro'
+import LinkIcon from './icons/LinkIcon.astro'
+import Badge from './Badge.astro'
+import NextIcon from './icons/NextJS.astro'
+import Tailwind from './icons/Tailwind.astro'
+import Supabase from './icons/Supabase.astro'
+import Clerk from './icons/Clerk.astro'
+import React from './icons/React.astro'
+import ShadCN from './icons/ShadCN.astro'
+import { Image } from 'astro:assets'
+
+const TAGS = {
+  NEXTJS: {
+    name: 'NextJS',
+    icon: NextIcon,
+    background: 'bg-black text-white'
+  },
+  TAILWIND: {
+    name: 'Tailwind CSS',
+    icon: Tailwind,
+    background: 'bg-blue-500 text-white'
+  },
+  SUPABASE: {
+    name: 'Supabase',
+    icon: Supabase,
+    background: 'bg-green-700 text-white'
+  },
+  CLERK: {
+    name: 'Clerk',
+    icon: Clerk,
+    background: 'bg-violet-500 text-white'
+  },
+  REACT: {
+    name: 'React',
+    icon: React,
+    background: 'bg-cyan-700 text-white'
+  },
+  SHADCN: {
+    name: 'Shadcn',
+    icon: ShadCN,
+    background: 'bg-black text-white'
+  }
+}
+
+const PROJECTS = [
+  {
+    image: '/projects/devmemo.webp',
+    alt: 'DevMemo',
+    titulo: 'DevMemo',
+    descripcion:
+      'Una plataforma web para agregar notas de código y errores que se vayan generando en tu proceso de desarrollo de software. Markdown integrado. Creada desde cero con NextJS, Tailwind CSS, Supabase y Clerk',
+    respositorio: 'https://github.com/MaicolCode/DevMemo',
+    demo: 'https://devmemo.vercel.app/',
+    technologies: [TAGS.NEXTJS, TAGS.TAILWIND, TAGS.SUPABASE, TAGS.CLERK]
+  },
+  {
+    image: '/projects/TodoReact.webp',
+    alt: 'TodoReact',
+    titulo: 'TodoReact',
+    descripcion:
+      'Aplicación web para gestionar tareas diarias con un asistente de IA integrado. El asistente analiza tu productividad basándose en las actividades completadas y pendientes, proporcionando resúmenes personalizados. Incluye un reproductor de música para amenizar tu trabajo. Una experiencia única que va más allá de una simple lista de tareas.',
+    respositorio: 'https://github.com/MaicolCode/TodoReact',
+    demo: 'https://todoreact-list.vercel.app/',
+    technologies: [TAGS.REACT, TAGS.TAILWIND, TAGS.SHADCN]
+  }
+]
+---
+
+<section class='my-8 space-y-8'>
+  {
+    PROJECTS.map((project) => (
+      <div class='flex flex-col md:flex-row gap-6 items-start'>
+        <div class='w-full md:w-[800px] overflow-hidden rounded-md md:hover:-translate-y-0.5 hover:-translate-x-0.5 transition transform duration-400 ease-in'>
+          <Image
+            src={project.image}
+            alt={project.alt}
+            loading='lazy'
+            decoding='async'
+            height='240'
+            width='420'
+            class='rounded-md object-cover transition-transform duration-300 ease-in-out'
+          />
+        </div>
+
+        <section class='w-full'>
+          <h2 class='text-2xl font-medium'>{project.titulo}</h2>
+          <p>{project.descripcion}</p>
+          <div class='mt-4 flex gap-4'>
+            {project.respositorio && (
+              <ButtonLink href={project.respositorio} target='_blank'>
+                <GithubIcon />
+                Código
+              </ButtonLink>
+            )}
+            {project.demo && (
+              <ButtonLink href={project.demo} target='_blank'>
+                <LinkIcon />
+                Demo
+              </ButtonLink>
+            )}
+          </div>
+          <span class='block font-normal mt-5'>Técnologias:</span>
+          <div class='flex flex-wrap my-1 gap-2'>
+            {project.technologies?.map((tech) => (
+              <Badge
+                class={`inline-flex items-center px-2 py-1 rounded-md text-xs font-light ${tech.background}`}
+              >
+                <tech.icon class='size-4' />
+                {tech.name}
+              </Badge>
+            ))}
+          </div>
+        </section>
+      </div>
+    ))
+  }
+</section>
