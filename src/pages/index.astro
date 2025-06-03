@@ -1,8 +1,54 @@
 ---
+import Projects from '@/components/Projects.astro'
+import Container from '../components/Container.astro'
+import Hero from '../components/Hero.astro'
 import Layout from '../layouts/Layout.astro'
+import Experience from '@/components/Experience.astro'
+import TitleSection from '@/components/TitleSection.astro'
+import WorkerIcon from '@/components/icons/WorkerIcon.astro'
+import CodeIcon from '@/components/icons/CodeIcon.astro'
+import AboutMe from '@/components/AboutMe.astro'
+import StarIcon from '@/components/icons/StarIcon.astro'
+import Tools from '@/components/Tools.astro'
+import SquareIcon from '@/components/icons/SquareIcon.astro'
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout />
+<Layout>
+  <main class='px-4'>
+    <Container class='py-12 md:py-28'>
+      <Hero />
+    </Container>
+    <Container id='experiencia'>
+      <TitleSection>
+        <WorkerIcon class='size-8' />
+        Experiencia
+      </TitleSection>
+      <Experience />
+    </Container>
+    <Container id='tecnologias'>
+      <TitleSection>
+        <SquareIcon class='size-8' />
+        Tecnologías
+      </TitleSection>
+      <Tools />
+    </Container>
+    <Container id='proyectos'>
+      <TitleSection>
+        <CodeIcon class='size-8' />
+        Proyectos
+      </TitleSection>
+      <Projects />
+    </Container>
+
+    <Container id='sobre-mi'>
+      <TitleSection>
+        <StarIcon class='size-8' />
+        Sobre Mi
+      </TitleSection>
+      <AboutMe />
+    </Container>
+  </main>
+</Layout>
