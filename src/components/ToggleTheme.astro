@@ -1,0 +1,67 @@
+---
+import SunIcon from './icons/SunIcon.astro'
+import MoonIcon from './icons/MoonIcon.astro'
+
+const theme = {
+  light: SunIcon,
+  dark: MoonIcon
+}
+---
+
+<button
+  id='toogle-theme'
+  class='relative flex justify-center items-center mx-2 rounded-full cursor-pointer'
+>
+  <SunIcon
+    class='theme-toogle-icon size-6 close pointer-events-none transition-all'
+  />
+  <MoonIcon
+    class='absolute theme-toogle-icon size-4 pointer-events-none transition-all'
+  />
+</button>
+
+<style>
+  .close {
+    scale: 0;
+  }
+  .open {
+    scale: 1;
+    animation: scale-up-center 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  @keyframes scale-up-center {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+</style>
+
+<script is:inline>
+  const toogleTheme = document.getElementById('toogle-theme')
+  const icons = document.querySelectorAll('.theme-toogle-icon')
+
+  toogleTheme.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark')
+    const isClose = Array.from(icons).filter((icon) =>
+      icon.classList.contains('close')
+    )
+    const isOpen = Array.from(icons).filter(
+      (icon) => !icon.classList.contains('close')
+    )
+
+    isClose[0].classList.remove('close')
+    isOpen[0].classList.add('close')
+  })
+
+  document.addEventListener('astro:after-swap', () => {
+    document.documentElement.classList.toggle('dark')
+  })
+
+  // Cambiar el tema de la página
+</script>
