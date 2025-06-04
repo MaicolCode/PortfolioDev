@@ -3,6 +3,8 @@ import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
 import '@fontsource-variable/fredoka'
 import '../styles/global.css'
+
+const { title, description } = Astro.props
 ---
 
 <!doctype html>
@@ -10,9 +12,51 @@ import '../styles/global.css'
   <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width' />
+    <meta name='description' content={description} />
+    <meta
+      name='keywords'
+      content='Maicol Paucar, Desarrollador Web, Programador Web, Portafolio, Software Engineer, Full Stack Developer'
+    />
+    <meta name='author' content='Maicol Paucar' />
+    <meta name='theme-color' content='#ffffff' />
+    <meta name='color-scheme' content='light dark' />
+    <meta name='robots' content='index, follow' />
+    <meta name='googlebot' content='index, follow' />
+    <meta name='msapplication-TileColor' content='#ffffff' />
+    <meta name='msapplication-TileImage' content='favicon.svg' />
+    <meta name='application-name' content='Maicol Paucar - Portafolio' />
+    <meta
+      name='apple-mobile-web-app-title'
+      content='Maicol Paucar - Portafolio'
+    />
+    <meta name='apple-mobile-web-app-capable' content='yes' />
+    <meta name='apple-mobile-web-app-status-bar-style' content='default' />
+    <meta name='mobile-web-app-capable' content='yes' />
+    <meta name='format-detection' content='telephone=no' />
+    <meta name='msapplication-config' content='browserconfig.xml' />
+    <meta name='theme-color' content='#ffffff' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:site' content='@maicolpaucar' />
+    <meta name='twitter:creator' content='@maicolpaucar' />
+    <meta name='twitter:title' content={title} />
+    <meta name='twitter:description' content={description} />
+    <meta
+      name='twitter:image'
+      content='https://porfolio-maicolcode.vercel.app/maicolcode.webp'
+    />
+    <meta property='og:title' content={title} />
+    <meta property='og:description' content={description} />
+    <meta property='og:url' content='https://porfolio-maicolcode.vercel.app/' />
+    <meta
+      property='og:image'
+      content='https://porfolio-maicolcode.vercel.app/maicolcode.webp'
+    />
+    <meta property='og:type' content='website' />
+    <meta property='og:site_name' content='Maicol Paucar - Portfolio' />
     <meta name='generator' content={Astro.generator} />
     <link rel='shortcut icon' href='favicon.svg' type='image/x-icon' />
-    <title>My Portfolio Dev</title>
+    <title>{title}</title>
   </head>
   <body class='font-light text-lg text-zinc-800 dark:text-zinc-100'>
     <div
